@@ -8,4 +8,8 @@ import {Pokemon} from '../shared/models/pokemon.model';
 })
 export class AppComponent {
   title = 'Pokemon';
+
+  favPokemon = new Pokemon(25, 'Pikachu');
+
+  pkType = 'Electric';
 }

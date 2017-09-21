@@ -9,6 +9,8 @@ import {Pokemon} from '../../shared/models/pokemon.model';
 export class PokemonDetailComponent implements OnInit {
   private _pokemon: Pokemon;
 
+  @Input() poketype: string;
+
   @Input()
   set pokemon(p: Pokemon) {
     this._pokemon = p;
@@ -16,9 +18,7 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   get pokemon() {
-    let pk = this._pokemon;
-    pk.name = pk.name.toUpperCase();
-    return pk;
+    return this._pokemon;
   }
 
   constructor() { }
