@@ -1,5 +1,18 @@
-<ul>
-  <li *ngFor="let p of pokemons">
-    <app-pokemon-detail [pokemon]="p"></app-pokemon-detail>
-  </li>
-</ul>
+<h2>List Component</h2>
+<div>
+  Name: {{pokemonName}}
+</div>
+<input type="text" #newP>
+<button (click)="updateP(newP.value)">Update Name List Component Value</button>
+
+<div>
+  Fav Pokemon: {{favPokemon.name}}
+</div>
+<input type="text" #newFav>
+<button (click)="updateFav(newFav.value)">Update Fav List Component Value</button>
+<!--<ul>-->
+  <!--<li *ngFor="let p of pokemons">-->
+    <!--<app-pokemon-detail [pokemon]="p"></app-pokemon-detail>-->
+  <!--</li>-->
+<!--</ul>-->
+

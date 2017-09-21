@@ -10,5 +10,16 @@
 <!--<button (click)="changePokemon(favoritePokemonInput.value)">Change</button>-->
 <!--<input type="text" placeholder="Change favorite" [(ngModel)]="favoritePokemon">-->
 <!--<button>Change</button>-->
-<app-pokemon-list></app-pokemon-list>
-
+<h2>App Component</h2>
+<div>
+  Name: {{pokemonName}}
+</div>
+<input type="text" #newPokemonName>
+<button (click)="updatePokemon(newPokemonName.value)">Update Name App Component Value</button>
+<div>
+  Fav: {{favPokemon.name}}
+</div>
+<input type="text" #newFav>
+<button (click)="updateFav(newFav.value)">Update Fav App Component Value</button>
+<app-pokemon-list [pokemons]="pokemonsList1" [favPokemon]="favPokemon" [pokemonName]="pokemonName"></app-pokemon-list>
+<app-pokemon-list [pokemons]="pokemonsList1" [favPokemon]="favPokemon" [pokemonName]="pokemonName"></app-pokemon-list>

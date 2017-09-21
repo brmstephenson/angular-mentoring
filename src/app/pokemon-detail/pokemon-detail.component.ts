@@ -16,9 +16,7 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   get pokemon() {
-    let pk = this._pokemon;
-    pk.name = pk.name.toUpperCase();
-    return pk;
+    return this._pokemon;
   }
 
   constructor() { }
@@ -26,4 +24,7 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  updatePk(value: string) {
+    this._pokemon.name = value;
+  }
 }

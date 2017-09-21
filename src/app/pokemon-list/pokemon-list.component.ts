@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Pokemon} from '../../shared/models/pokemon.model';
 
 @Component({
@@ -7,15 +7,9 @@ import {Pokemon} from '../../shared/models/pokemon.model';
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-  // favoritePokemon = 'Charmander';
-  pokemons: Pokemon[] = [
-    new Pokemon(1, 'Bulbasaur'),
-    new Pokemon(2, 'Ivysaur'),
-    new Pokemon(3, 'Venusaur'),
-    new Pokemon(4, 'Charmander'),
-    new Pokemon(5, 'Charmeleon'),
-    new Pokemon(6, 'Charizard')
-  ];
+  @Input() pokemons: Pokemon[];
+  @Input() pokemonName: string;
+  @Input() favPokemon: Pokemon;
 
   // changePokemon(newValue) {
   //   this.favoritePokemon = newValue;
@@ -34,5 +28,13 @@ export class PokemonListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  updateP(newValue: string) {
+    this.pokemonName = newValue;
+  }
+
+  updateFav(value: string) {
+    this.favPokemon.name = value;
   }
 }
