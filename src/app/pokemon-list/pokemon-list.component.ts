@@ -7,7 +7,8 @@ import {Pokemon} from '../../shared/models/pokemon.model';
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-  // favoritePokemon = 'Charmander';
+  favoritePokemon: Pokemon;
+
   pokemons: Pokemon[] = [
     new Pokemon(1, 'Bulbasaur'),
     new Pokemon(2, 'Ivysaur'),
@@ -34,5 +35,9 @@ export class PokemonListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  chooseFavorite(newFav: Pokemon) {
+    this.favoritePokemon = newFav;
   }
 }

@@ -1,5 +1,10 @@
 <ul>
   <li *ngFor="let p of pokemons">
-    <app-pokemon-detail [pokemon]="p"></app-pokemon-detail>
+    <app-pokemon-detail #pokeDetail [pokemon]="p" (onSelected)="chooseFavorite($event)"></app-pokemon-detail>
+    <div>{{pokeDetail.poketype}}</div>
   </li>
 </ul>
+<div *ngIf="favoritePokemon">
+  <h3>I Selected You!</h3>
+  <div>{{ favoritePokemon.name }}</div>
+</div>
