@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Pokemon} from '../../shared/models/pokemon.model';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class PokemonService {
   private _pokemonList: Pokemon[];
-  private _favPokemon: Pokemon;
+  private _favPokemonSource = new BehaviorSubject<Pokemon>(null);
+  favPokemon$ = this._favPokemonSource.asObservable();
 
-  get favPokemon() {
-    return this._favPokemon;
-  }
-
-  set favPokemon(newPokemon: Pokemon) {
-    this._favPokemon = newPokemon;
+  changeFavoritePokemon(newValue: Pokemon) {
+    this._favPokemonSource.next(newValue);
   }
 
   getPokemonList(): Pokemon[] {
