@@ -1,0 +1,12 @@
+<div *ngIf="favPokemon">
+  <h3>Favorite Pokemon: {{favPokemon.name}}</h3>
+  <h4>Pokedex Number: {{favPokemon.id}}</h4>
+</div>
+<div>
+  <h6>Pick New Favorite</h6>
+  <input type="text" #favoriteInput>
+  <button (click)="pickFavorite(favoriteInput.value)">Update Favorite</button>
+</div>
+<div>
+  <button (click)="updateFavorite()">Get Updated Favorite</button>
+</div>
