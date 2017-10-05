@@ -16,7 +16,10 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   pokemons: Pokemon[];
 
   private getPokemonList(): void {
-    this.pokemons = this._pokemonService.getPokemonList();
+    this._pokemonService.getPokemonList().subscribe(pokemons => {
+      console.log('things');
+      this.pokemons = pokemons;
+    });
   }
 
   constructor(private _pokemonService: PokemonService) { }

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.co
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
