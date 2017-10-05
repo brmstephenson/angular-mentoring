@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import {Pokemon} from '../shared/models/pokemon.model';
+import { PokemonService } from './pokemon-service/pokemon-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [PokemonService]
 })
 export class AppComponent {
-  title = 'Pokemon';
+  constructor(private _pokemonService: PokemonService) { }
 
-  favPokemon = new Pokemon(25, 'Pikachu');
+  title = 'Pokemon';
 
   pkType = 'Electric';
 }

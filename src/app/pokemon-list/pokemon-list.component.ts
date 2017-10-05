@@ -1,43 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Pokemon} from '../../shared/models/pokemon.model';
+import {PokemonService} from '../pokemon-service/pokemon-service.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.scss']
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent implements OnInit, OnDestroy {
+  private _favoritePokemonSubscription: Subscription;
+
   favoritePokemon: Pokemon;
 
-  pokemons: Pokemon[] = [
-    new Pokemon(1, 'Bulbasaur'),
-    new Pokemon(2, 'Ivysaur'),
-    new Pokemon(3, 'Venusaur'),
-    new Pokemon(4, 'Charmander'),
-    new Pokemon(5, 'Charmeleon'),
-    new Pokemon(6, 'Charizard')
-  ];
+  pokemons: Pokemon[];
 
-  // changePokemon(newValue) {
-  //   this.favoritePokemon = newValue;
-  // }
-  //
-  // isPikachu(): boolean {
-  //   return this.favoritePokemon.toLowerCase() === 'pikachu';
-  // }
-  //
-  // getFavoriteClass(pk: Pokemon): string {
-  //   if (pk.name.toLowerCase() === this.favoritePokemon.toLowerCase()) {
-  //     return 'yellow-background';
-  //   }
-  // }
-
-  constructor() { }
-
-  ngOnInit() {
+  private getPokemonList(): void {
+    this.pokemons = this._pokemonService.getPokemonList();
   }
 
-  chooseFavorite(newFav: Pokemon) {
-    this.favoritePokemon = newFav;
+  constructor(private _pokemonService: PokemonService) { }
+
+  ngOnInit() {
+    this.getPokemonList();
+    this._favoritePokemonSubscription = this._pokemonService.favPokemon$
+      .subscribe(newFav => this.favoritePokemon = newFav);
+  }
+
+  chooseFavorite(newFav: Pokemon): void {
+    this._pokemonService.changeFavoritePokemon(newFav);
+  }
+
+  ngOnDestroy(): void {
+    this._favoritePokemonSubscription.unsubscribe();
   }
 }
