@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Pokemon} from '../shared/models/pokemon.model';
-import { PokemonService } from './pokemon-service/pokemon-service.service';
+import {Pokemon} from './shared/models/pokemon.model';
+import { PokemonService } from './pokemon/pokemon-service/pokemon-service.service';
 
 @Component({
   selector: 'app-root',

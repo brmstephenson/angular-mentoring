@@ -1,8 +1,7 @@
 export class Pokemon {
   id: number;
   name: string;
-  height: number;
-  weight: number;
+  url: string;
 
   constructor (id: number, name: string) {
     this.id = id;

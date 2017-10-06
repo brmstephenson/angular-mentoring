@@ -3,20 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
-import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
-import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.component';
+import {HttpClientModule} from '@angular/common/http';
+import {PokemonModule} from './pokemon/pokemon.module';
+import {TypesModule} from './types/types.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PokemonListComponent,
-    PokemonDetailComponent,
-    PokemonFavoriteComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    PokemonModule,
+    TypesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
