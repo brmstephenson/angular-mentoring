@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService} from '../pokemon-service/pokemon-service.service';
-import {Pokemon} from '../../shared/models/pokemon.model';
-import {Subscription} from 'rxjs/Subscription';
+import { Pokemon } from '../../shared/models/pokemon.model';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-pokemon-favorite',

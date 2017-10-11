@@ -35,6 +35,8 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._favoritePokemonSubscription.unsubscribe();
+    if(this._favoritePokemonSubscription) {
+      this._favoritePokemonSubscription.unsubscribe();      
+    }
   }
 }

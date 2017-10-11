@@ -20,6 +20,6 @@ describe('TypeListComponent', () => {
   });
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+    expect(component.types).toEqual('blah');
   });
 });

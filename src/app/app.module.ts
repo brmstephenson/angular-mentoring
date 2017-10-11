@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
 import {PokemonModule} from './pokemon/pokemon.module';
 import {TypesModule} from './types/types.module';
 
@@ -14,7 +13,6 @@ import {TypesModule} from './types/types.module';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
     PokemonModule,
     TypesModule
   ],
