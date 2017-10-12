@@ -18,8 +18,4 @@ describe('TypeListComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should be created', () => {
-    expect(component.types).toEqual('blah');
-  });
 });
