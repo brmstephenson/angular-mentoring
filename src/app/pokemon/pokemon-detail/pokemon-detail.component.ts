@@ -9,8 +9,6 @@ import {Pokemon} from '../../shared/models/pokemon.model';
 export class PokemonDetailComponent implements OnInit {
   private _pokemon: Pokemon;
 
-  @Input() poketype = 'Electric';
-
   @Input()
   set pokemon(p: Pokemon) {
     this._pokemon = p;
